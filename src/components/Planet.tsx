@@ -6,5 +6,9 @@ export default function Planet() {
 
   const planet = data.find((planetObj) => planetObj.name === planetName);
   console.log(planet);
-  return <div></div>;
+  return (
+    <div>
+      <p>{planet?.name}</p>
+    </div>
+  );
 }
