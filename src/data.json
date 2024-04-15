@@ -21,6 +21,9 @@
       "planet": "./assets/planet-mercury.svg",
       "internal": "./assets/planet-mercury-internal.svg",
       "geology": "./assets/geology-mercury.png"
+    },
+    "design": {
+      "color": "#DEF4FC"
     }
   },
   {
@@ -45,6 +48,9 @@
       "planet": "./assets/planet-venus.svg",
       "internal": "./assets/planet-venus-internal.svg",
       "geology": "./assets/geology-venus.png"
+    },
+    "design": {
+      "color": "#F7CC7F"
     }
   },
   {
@@ -69,6 +75,9 @@
       "planet": "./assets/planet-earth.svg",
       "internal": "./assets/planet-earth-internal.svg",
       "geology": "./assets/geology-earth.png"
+    },
+    "design": {
+      "color": "#545BFE"
     }
   },
   {
@@ -93,6 +102,9 @@
       "planet": "./assets/planet-mars.svg",
       "internal": "./assets/planet-mars-internal.svg",
       "geology": "./assets/geology-mars.png"
+    },
+    "design": {
+      "color": "#FF6A45"
     }
   },
   {
@@ -117,6 +129,9 @@
       "planet": "./assets/planet-jupiter.svg",
       "internal": "./assets/planet-jupiter-internal.svg",
       "geology": "./assets/geology-jupiter.png"
+    },
+    "design": {
+      "color": "#ECAD7A"
     }
   },
   {
@@ -141,6 +156,9 @@
       "planet": "./assets/planet-saturn.svg",
       "internal": "./assets/planet-saturn-internal.svg",
       "geology": "./assets/geology-saturn.png"
+    },
+    "design": {
+      "color": "#FCCB6B"
     }
   },
   {
@@ -165,6 +183,9 @@
       "planet": "./assets/planet-uranus.svg",
       "internal": "./assets/planet-uranus-internal.svg",
       "geology": "./assets/geology-uranus.png"
+    },
+    "design": {
+      "color": "#65F0D5"
     }
   },
   {
@@ -189,6 +210,9 @@
       "planet": "./assets/planet-neptune.svg",
       "internal": "./assets/planet-neptune-internal.svg",
       "geology": "./assets/geology-neptune.png"
+    },
+    "design": {
+      "color": "#497EFA"
     }
   }
 ]
