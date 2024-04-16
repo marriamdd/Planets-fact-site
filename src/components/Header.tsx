@@ -76,6 +76,7 @@ const Additional = styled.div`
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.929px;
+    text-transform: uppercase;
   }
 `;
 const NavContainer = styled.div<{ show: boolean }>`
@@ -94,6 +95,7 @@ const NavContainer = styled.div<{ show: boolean }>`
     width: 100%;
     padding: 2rem;
     background-color: #070724;
+    text-transform: uppercase;
   }
 `;
 
