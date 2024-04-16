@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import data from "../data.json";
 import { useParams } from "react-router";
-export default function Planet() {
+import { IViewOptions } from "../App";
+export default function Planet({
+  viewOption,
+  setViewOption,
+}: {
+  viewOption: IViewOptions;
+  setViewOption: (option: IViewOptions) => void;
+}) {
   const params = useParams();
   const planetName = params.planet;
 
@@ -9,10 +16,22 @@ export default function Planet() {
   console.log(planet);
   return (
     <Main Planet={planet}>
-      <img className="planet_img" src={planet?.images.planet} alt="" />
+      <img
+        className="planet_img"
+        src={
+          (viewOption.structure && planet?.images.internal) ||
+          (viewOption.surface && planet?.images.geology) ||
+          planet?.images.planet
+        }
+        alt=""
+      />
       <h1>{planet?.name}</h1>
       <div>
-        <p className="overview_content">{planet?.overview.content}</p>
+        <p className="overview_content">
+          {(viewOption.structure && planet?.structure.content) ||
+            (viewOption.surface && planet?.geology.content) ||
+            planet?.overview.content}
+        </p>
         <p className="sorce_P">
           Source : <a href={planet?.overview.source}>Wikipedia</a>{" "}
           <img src="public/assets/icon-source.svg" alt="icon-source" />

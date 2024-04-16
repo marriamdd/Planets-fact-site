@@ -2,8 +2,23 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
-// import Planet from "./Planet";
-export default function Header() {
+import { IViewOptions } from "../App";
+
+export default function Header({
+  viewOption,
+  setViewOption,
+}: {
+  viewOption: IViewOptions;
+  setViewOption: (option: IViewOptions) => void;
+}) {
+  const handleViewOptionClick = (name: string) => {
+    const updatedOptions: IViewOptions = { ...viewOption };
+    Object.keys(viewOption).forEach((option) => {
+      updatedOptions[option] = option === name;
+    });
+    setViewOption(updatedOptions);
+  };
+
   const [show, setShow] = useState<boolean>(false);
 
   const handleHamburgerClick = () => {
@@ -20,9 +35,12 @@ export default function Header() {
         </button>
       </div>
       <Additional>
-        <span>OVERVIEW</span>
-        <span>Structure</span>
-        <span>Surface </span>
+        <span onClick={() => handleViewOptionClick("overView")}>OVERVIEW</span>
+        <span onClick={() => handleViewOptionClick("structure")}>
+          {" "}
+          Structure
+        </span>
+        <span onClick={() => handleViewOptionClick("surface")}>Surface </span>
       </Additional>
       <NavContainer show={show}>
         <ul>
@@ -30,7 +48,9 @@ export default function Header() {
             <Li key={index} Planet={planet}>
               <div className="nav-circle">
                 <div className="circles"></div>
-                <Link to={`/${planet.name}`}>{planet.name}</Link>
+                <Link onClick={handleHamburgerClick} to={`/${planet.name}`}>
+                  {planet.name}
+                </Link>
               </div>
 
               <span className="arrow">
