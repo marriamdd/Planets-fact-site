@@ -23,7 +23,8 @@
       "geology": "./assets/geology-mercury.png"
     },
     "design": {
-      "color": "#DEF4FC"
+      "color": "#DEF4FC",
+      "overview_mobile": "11.1rem"
     }
   },
   {
@@ -50,7 +51,8 @@
       "geology": "./assets/geology-venus.png"
     },
     "design": {
-      "color": "#F7CC7F"
+      "color": "#F7CC7F",
+      "overview_mobile": "15.4rem"
     }
   },
   {
@@ -77,7 +79,8 @@
       "geology": "./assets/geology-earth.png"
     },
     "design": {
-      "color": "#545BFE"
+      "color": "#545BFE",
+      "overview_mobile": "17.3rem"
     }
   },
   {
@@ -104,7 +107,8 @@
       "geology": "./assets/geology-mars.png"
     },
     "design": {
-      "color": "#FF6A45"
+      "color": "#FF6A45",
+      "overview_mobile": "12.9rem"
     }
   },
   {
@@ -131,7 +135,8 @@
       "geology": "./assets/geology-jupiter.png"
     },
     "design": {
-      "color": "#ECAD7A"
+      "color": "#ECAD7A",
+      "overview_mobile": "22.4rem"
     }
   },
   {
@@ -158,7 +163,8 @@
       "geology": "./assets/geology-saturn.png"
     },
     "design": {
-      "color": "#FCCB6B"
+      "color": "#FCCB6B",
+      "overview_mobile": "15.9rem"
     }
   },
   {
@@ -185,7 +191,8 @@
       "geology": "./assets/geology-uranus.png"
     },
     "design": {
-      "color": "#65F0D5"
+      "color": "#65F0D5",
+      "overview_mobile": "17.6rem"
     }
   },
   {
@@ -212,7 +219,8 @@
       "geology": "./assets/geology-neptune.png"
     },
     "design": {
-      "color": "#497EFA"
+      "color": "#497EFA",
+      "overview_mobile": "17.3rem"
     }
   }
 ]

@@ -13,17 +13,23 @@ export default function Header() {
 
   return (
     <HeaderDiv>
-      {" "}
-      <h1>THE PLANETS</h1>
-      <button onClick={handleHamburgerClick}>
-        <img src="/assets/icon-hamburger.svg" alt="icon-hamburger" />
-      </button>
+      <div className="headerDiv">
+        <h1>THE PLANETS</h1>
+        <button onClick={handleHamburgerClick}>
+          <img src="/assets/icon-hamburger.svg" alt="icon-hamburger" />
+        </button>
+      </div>
+      <Additional>
+        <span>OVERVIEW</span>
+        <span>Structure</span>
+        <span>Surface </span>
+      </Additional>
       <NavContainer show={show}>
         <ul>
           {data.map((planet, index) => (
             <Li key={index} Planet={planet}>
               <div className="nav-circle">
-                <div className="Circles"></div>
+                <div className="circles"></div>
                 <Link to={`/${planet.name}`}>{planet.name}</Link>
               </div>
 
@@ -39,95 +45,83 @@ export default function Header() {
 }
 
 const HeaderDiv = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 8rem;
-  padding: 0 2rem;
-  @media screen and (min-width: 1024px) {
-    justify-content: center;
+  .headerDiv {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 3rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
-  button {
-    background-color: transparent;
+  .headerDiv h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -1.05px;
+    text-transform: uppercase;
+  }
+  .headerDiv button {
     border: none;
+    background: transparent;
     cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-
-    @media screen and (max-width: 1024px) {
-      visibility: visible;
-      opacity: 1;
-    }
-    @media screen and (max-width: 1024px) {
-      visibility: visible;
-      opacity: 1;
-    }
   }
 `;
-
-const NavContainer = styled.nav<{ show: boolean }>`
-  position: fixed;
-  top: 50px;
-  left: 0;
-  height: 90vh;
+const Additional = styled.div`
+  display: flex;
   width: 100%;
-
-  gap: 1.5rem;
-  transition: 1s;
-  transform: ${(props) => (!props.show ? "translateY(-100vh)" : "none")};
-  @media screen and (min-width: 1440px) {
-    /* position: static;
-     */
-    all: unset;
+  justify-content: space-around;
+  padding: 2rem 3rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  & > span {
+    cursor: pointer;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.929px;
   }
-  & > ul {
+`;
+const NavContainer = styled.div<{ show: boolean }>`
+  display: ${(props) => (props.show ? "flex" : "none")};
+  transform: ${(props) => (!props.show ? "translateX(-1000vh)" : "none")};
+  position: absolute;
+  z-index: 9999;
+  height: 100vh;
+  width: 100%;
+  top: 8rem;
+  ul {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    margin-top: 6rem;
-    margin-left: 3rem;
-    background: #070724;
-    @media screen and (min-width: 1025px) {
-      flex-direction: row;
-    }
-    .nav-circle {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-    }
+    align-items: center;
+    gap: 2.3rem;
+    width: 100%;
+    padding: 2rem;
+    background-color: #070724;
   }
 `;
+
 const Li = styled.li<{ Planet: { design: { color: string } } }>`
-  color: #fff;
-  text-align: start;
-  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
   font-size: 15px;
-  /* padding: 3rem; */
-  padding-left: 5rem;
+  font-style: normal;
   font-weight: 700;
   line-height: 25px;
   letter-spacing: 1.364px;
   text-transform: uppercase;
-  border-bottom: 1px solid gray;
-  width: 100%;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
+  padding-bottom: 1.5rem;
 
-  .Circles {
-    visibility: visible;
-    width: 20px;
-    height: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  .nav-circle {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .circles {
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background-color: ${(props) =>
       props.Planet && props.Planet.design && props.Planet.design.color};
-    @media screen and (min-width: 1025px) {
-      visibility: hidden;
-    }
-  }
-  .arrow {
-    @media screen and (min-width: 1025px) {
-      visibility: hidden;
-    }
   }
 `;
