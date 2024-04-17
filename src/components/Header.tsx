@@ -2,23 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
-import { IViewOptions } from "../App";
+import AdditionalContent from "./AdditionalContent";
 
 export default function Header({
   viewOption,
   setViewOption,
 }: {
-  viewOption: IViewOptions;
-  setViewOption: (option: IViewOptions) => void;
+  viewOption: string | undefined;
+  setViewOption: (option: string) => void;
 }) {
-  const handleViewOptionClick = (name: string) => {
-    const updatedOptions: IViewOptions = { ...viewOption };
-    Object.keys(viewOption).forEach((option) => {
-      updatedOptions[option] = option === name;
-    });
-    setViewOption(updatedOptions);
-  };
-
   const [show, setShow] = useState<boolean>(false);
 
   const handleHamburgerClick = () => {
@@ -33,27 +25,10 @@ export default function Header({
           <img src="/assets/icon-hamburger.svg" alt="icon-hamburger" />
         </button>
       </div>
-      <Additional viewOption={viewOption}>
-        <span
-          className="overView"
-          onClick={() => handleViewOptionClick("overview")}
-        >
-          OVERVIEW
-        </span>
-        <span
-          className="structure"
-          onClick={() => handleViewOptionClick("structure")}
-        >
-          {" "}
-          Structure
-        </span>
-        <span
-          className="surface"
-          onClick={() => handleViewOptionClick("surface")}
-        >
-          Surface{" "}
-        </span>
-      </Additional>
+      <AdditionalContent
+        viewOption={viewOption}
+        setViewOption={setViewOption}
+      ></AdditionalContent>
       <NavContainer show={show}>
         <ul>
           {data.map((planet, index) => (
@@ -105,39 +80,7 @@ const HeaderDiv = styled.header`
     }
   }
 `;
-const Additional = styled.div<{
-  viewOption: IViewOptions;
-}>`
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  padding: 2rem 3rem 0rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-  & > span {
-    cursor: pointer;
-    text-align: center;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.929px;
-    text-transform: uppercase;
-    padding-bottom: 2rem;
-  }
-  .overView {
-    border-bottom: ${(props) =>
-      props.viewOption?.overview ? `2px solid red` : ""};
-  }
-  .structure {
-    border-bottom: ${(props) =>
-      props.viewOption?.structure ? "2px solid red" : ""};
-  }
-  .surface {
-    border-bottom: ${(props) =>
-      props.viewOption?.surface ? "2px solid red" : ""};
-  }
-`;
+
 const NavContainer = styled.div<{ show: boolean }>`
   display: ${(props) => (props.show ? "flex" : "none")};
   transform: ${(props) => (!props.show ? "translateX(-1000vh)" : "none")};

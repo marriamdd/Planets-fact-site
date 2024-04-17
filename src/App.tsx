@@ -3,18 +3,14 @@ import { Routes, Route, Navigate } from "react-router";
 import Planet from "./components/Planet";
 import { useState } from "react";
 import GlobalStyles from "./globalStyles/GlobalStyles";
-export interface IViewOptions {
-  overview: boolean;
-  structure: boolean;
-  surface: boolean;
-  [key: string]: boolean;
-}
+// export interface IViewOptions {
+//   overview: boolean;
+//   structure: boolean;
+//   surface: boolean;
+//   [key: string]: boolean;
+// }
 function App() {
-  const [viewOption, setViewOption] = useState({
-    overview: false,
-    structure: false,
-    surface: false,
-  });
+  const [viewOption, setViewOption] = useState("overview");
   console.log(viewOption);
   return (
     <>

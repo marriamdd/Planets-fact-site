@@ -1,27 +1,27 @@
 import styled from "styled-components";
 import data from "../data.json";
 import { useParams } from "react-router";
-import { IViewOptions } from "../App";
+// import { IViewOptions } from "../App";
 export default function Planet({
   viewOption,
   setViewOption,
 }: {
-  viewOption: IViewOptions;
-  setViewOption: (option: IViewOptions) => void;
+  viewOption: string | undefined;
+  setViewOption: (option: string) => void;
 }) {
   const params = useParams();
   const planetName = params.planet;
 
   const planet = data.find((planetObj) => planetObj.name === planetName);
-  console.log(planet);
+
   return (
     <Main Planet={planet}>
       <div className="planetImg_div">
         <img
           className="planet_img"
           src={
-            (viewOption.structure && planet?.images.internal) ||
-            (viewOption.surface && planet?.images.geology) ||
+            (viewOption === "structure" && planet?.images.internal) ||
+            (viewOption === "geology" && planet?.images.geology) ||
             planet?.images.planet
           }
           alt="planet_img"
@@ -31,8 +31,9 @@ export default function Planet({
       <div>
         <h1>{planet?.name}</h1>
         <p className="overview_content">
-          {(viewOption.structure && planet?.viewOption.structure.content) ||
-            (viewOption.surface && planet?.viewOption.geology.content) ||
+          {(viewOption === "structure" &&
+            planet?.viewOption.structure.content) ||
+            (viewOption === "geology" && planet?.viewOption.geology.content) ||
             planet?.viewOption.overview.content}
         </p>
         <p className="sorce_P">
