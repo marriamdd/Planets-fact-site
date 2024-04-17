@@ -11,7 +11,7 @@ import GlobalStyles from "./globalStyles/GlobalStyles";
 // }
 function App() {
   const [viewOption, setViewOption] = useState("overview");
-  console.log(viewOption);
+
   return (
     <>
       <GlobalStyles />

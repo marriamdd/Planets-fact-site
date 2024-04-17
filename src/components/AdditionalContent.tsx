@@ -1,4 +1,39 @@
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import Data from "../data.json";
+
+interface ICurrentPlanet {
+  name: string;
+  viewOption: {
+    overview: {
+      content: string;
+      source: string;
+    };
+    structure: {
+      content: string;
+      source: string;
+    };
+    geology: {
+      content: string;
+      source: string;
+    };
+  };
+  rotation: string;
+  revolution: string;
+  radius: string;
+  temperature: string;
+  images?: {
+    content?: string;
+  };
+  design:
+    | {
+        color: string;
+        overview_mobile: string;
+        overview_tablet: string;
+      }
+    | undefined;
+}
+
 export default function AdditionalContent({
   viewOption,
   setViewOption,
@@ -7,14 +42,21 @@ export default function AdditionalContent({
   setViewOption: (option: string) => void;
 }) {
   const additionalArray = ["overview", "structure", "geology"];
-  // const handleViewOptionClick=()=>{
+  let location = useLocation();
+  let endPoint = location.pathname.replace("/", "");
 
-  // }
+  let currentPlanet = Data.find((current) => current.name === endPoint);
+  //   console.log(currentPlanet.name);
   console.log(viewOption);
+
   return (
-    <Additional>
+    <Additional currentPlanet={currentPlanet} viewOption={viewOption}>
       {additionalArray.map((currentOption, index) => (
-        <span onClick={() => setViewOption(currentOption)}>
+        <span
+          onClick={() => setViewOption(currentOption)}
+          key={index}
+          className={currentOption === viewOption ? "active" : ""}
+        >
           {currentOption}
         </span>
       ))}
@@ -22,7 +64,10 @@ export default function AdditionalContent({
   );
 }
 
-const Additional = styled.div`
+const Additional = styled.div<{
+  currentPlanet?: Partial<ICurrentPlanet>;
+  viewOption?: string | undefined;
+}>`
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -39,5 +84,9 @@ const Additional = styled.div`
     letter-spacing: 1.929px;
     text-transform: uppercase;
     padding-bottom: 2rem;
+  }
+  & > span.active {
+    border-bottom: ${(props) =>
+      `3px solid ${props.currentPlanet?.design?.color}`};
   }
 `;
