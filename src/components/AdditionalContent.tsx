@@ -46,8 +46,6 @@ export default function AdditionalContent({
   let endPoint = location.pathname.replace("/", "");
 
   let currentPlanet = Data.find((current) => current.name === endPoint);
-  //   console.log(currentPlanet.name);
-  console.log(viewOption);
 
   return (
     <Additional currentPlanet={currentPlanet} viewOption={viewOption}>
@@ -74,19 +72,33 @@ const Additional = styled.div<{
   padding: 2rem 3rem 0rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   @media screen and (min-width: 768px) {
-    display: none;
+    border-bottom: none;
+    padding: 0rem;
   }
   & > span {
     cursor: pointer;
     text-align: center;
+
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.929px;
     text-transform: uppercase;
     padding-bottom: 2rem;
+    @media screen and (min-width: 768px) {
+      width: 281px;
+      height: 40px;
+      padding-top: 1rem;
+    }
   }
   & > span.active {
     border-bottom: ${(props) =>
       `3px solid ${props.currentPlanet?.design?.color}`};
+    @media screen and (min-width: 768px) {
+      width: 281px;
+      height: 40px;
+      flex-shrink: 0;
+      border-bottom: none;
+      background-color: ${(props) => props.currentPlanet?.design?.color};
+    }
   }
 `;

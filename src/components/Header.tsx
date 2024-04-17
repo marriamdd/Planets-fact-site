@@ -7,9 +7,11 @@ import AdditionalContent from "./AdditionalContent";
 export default function Header({
   viewOption,
   setViewOption,
+  isMobile,
 }: {
   viewOption: string | undefined;
   setViewOption: (option: string) => void;
+  isMobile: boolean;
 }) {
   const [show, setShow] = useState<boolean>(false);
 
@@ -25,10 +27,13 @@ export default function Header({
           <img src="/assets/icon-hamburger.svg" alt="icon-hamburger" />
         </button>
       </div>
-      <AdditionalContent
-        viewOption={viewOption}
-        setViewOption={setViewOption}
-      ></AdditionalContent>
+      {isMobile && (
+        <AdditionalContent
+          viewOption={viewOption}
+          setViewOption={setViewOption}
+        ></AdditionalContent>
+      )}
+
       <NavContainer show={show}>
         <ul>
           {data.map((planet, index) => (

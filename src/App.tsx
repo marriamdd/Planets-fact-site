@@ -3,25 +3,29 @@ import { Routes, Route, Navigate } from "react-router";
 import Planet from "./components/Planet";
 import { useState } from "react";
 import GlobalStyles from "./globalStyles/GlobalStyles";
-// export interface IViewOptions {
-//   overview: boolean;
-//   structure: boolean;
-//   surface: boolean;
-//   [key: string]: boolean;
-// }
+import { useMediaQuery } from "react-responsive";
 function App() {
   const [viewOption, setViewOption] = useState("overview");
-
+  const isMobile = useMediaQuery({ query: `(max-width:768px)` });
+  const isTablet = useMediaQuery({ query: `(min-width:768px)` });
   return (
     <>
       <GlobalStyles />
-      <Header setViewOption={setViewOption} viewOption={viewOption} />
+      <Header
+        setViewOption={setViewOption}
+        viewOption={viewOption}
+        isMobile={isMobile}
+      />
       <Routes>
         <Route path="/" element={<Navigate to={"/Earth"} />}></Route>
         <Route
           path="/:planet"
           element={
-            <Planet setViewOption={setViewOption} viewOption={viewOption} />
+            <Planet
+              setViewOption={setViewOption}
+              viewOption={viewOption}
+              isTablet={isTablet}
+            />
           }
         ></Route>
       </Routes>

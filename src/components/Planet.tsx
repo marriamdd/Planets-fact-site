@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import data from "../data.json";
 import { useParams } from "react-router";
-// import { IViewOptions } from "../App";
+import AdditionalContent from "./AdditionalContent";
+
 export default function Planet({
   viewOption,
   setViewOption,
+  isTablet,
 }: {
   viewOption: string | undefined;
   setViewOption: (option: string) => void;
+  isTablet: boolean;
 }) {
   const params = useParams();
   const planetName = params.planet;
@@ -28,7 +31,7 @@ export default function Planet({
         />
       </div>
 
-      <div>
+      <div className="storyContent">
         <h1>{planet?.name}</h1>
         <p className="overview_content">
           {(viewOption === "structure" &&
@@ -41,6 +44,13 @@ export default function Planet({
           <img src="public/assets/icon-source.svg" alt="icon-source" />
         </p>
       </div>
+      {isTablet && (
+        <AdditionalContent
+          viewOption={viewOption}
+          setViewOption={setViewOption}
+        />
+      )}
+
       <div className="quicInfoContainer">
         <div>
           <p>ROTATION TIME</p>
@@ -75,6 +85,7 @@ const Main = styled.main<{
 
   @media screen and (min-width: 768px) {
     display: grid;
+    grid-template-columns: 1fr 1fr;
   }
   .overview_content {
     color: #fff;
@@ -137,6 +148,7 @@ const Main = styled.main<{
 
       justify-content: space-around;
       align-items: center;
+
       & > p {
         color: #fff;
         font-family: Spartan;
@@ -158,6 +170,26 @@ const Main = styled.main<{
         line-height: normal;
         letter-spacing: -0.75px;
         text-transform: uppercase;
+      }
+    }
+  }
+  .planetImg_div {
+    @media screen and (min-width: 768px) {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+  .quicInfoContainer {
+    @media screen and (min-width: 768px) {
+      grid-column-start: 3;
+      grid-column-end: 1;
+    }
+  }
+  .storyContent {
+    @media screen and (min-width: 768px) {
+      p {
+        width: 33.9rem;
+        font-size: 11px;
       }
     }
   }
