@@ -16,24 +16,27 @@ export default function Planet({
   console.log(planet);
   return (
     <Main Planet={planet}>
-      <img
-        className="planet_img"
-        src={
-          (viewOption.structure && planet?.images.internal) ||
-          (viewOption.surface && planet?.images.geology) ||
-          planet?.images.planet
-        }
-        alt=""
-      />
-      <h1>{planet?.name}</h1>
+      <div className="planetImg_div">
+        <img
+          className="planet_img"
+          src={
+            (viewOption.structure && planet?.images.internal) ||
+            (viewOption.surface && planet?.images.geology) ||
+            planet?.images.planet
+          }
+          alt="planet_img"
+        />
+      </div>
+
       <div>
+        <h1>{planet?.name}</h1>
         <p className="overview_content">
-          {(viewOption.structure && planet?.structure.content) ||
-            (viewOption.surface && planet?.geology.content) ||
-            planet?.overview.content}
+          {(viewOption.structure && planet?.viewOption.structure.content) ||
+            (viewOption.surface && planet?.viewOption.geology.content) ||
+            planet?.viewOption.overview.content}
         </p>
         <p className="sorce_P">
-          Source : <a href={planet?.overview.source}>Wikipedia</a>{" "}
+          Source : <a href={planet?.viewOption.overview.source}>Wikipedia</a>{" "}
           <img src="public/assets/icon-source.svg" alt="icon-source" />
         </p>
       </div>
@@ -59,17 +62,24 @@ export default function Planet({
   );
 }
 
-const Main = styled.main<{ Planet?: { design: { overview_mobile: string } } }>`
+const Main = styled.main<{
+  Planet?: { design: { overview_mobile: string; overview_tablet: string } };
+}>`
   margin-block: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-inline: 2rem;
+  padding-inline: 4rem;
   gap: 1rem;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+  }
   .overview_content {
     color: #fff;
     text-align: center;
-
+    word-wrap: normal;
+    max-width: 550px;
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
@@ -80,8 +90,16 @@ const Main = styled.main<{ Planet?: { design: { overview_mobile: string } } }>`
       props.Planet &&
       props.Planet.design.overview_mobile &&
       props.Planet.design.overview_mobile};
+    transition: 1s;
+    @media screen and (min-width: 768px) {
+      width: ${(props) =>
+        props.Planet &&
+        props.Planet.design.overview_tablet &&
+        props.Planet.design.overview_tablet};
+      transition: 1s;
+    }
   }
-  & > h1 {
+  & > div h1 {
     margin-top: 7rem;
     text-align: center;
     font-size: 40px;
@@ -93,6 +111,7 @@ const Main = styled.main<{ Planet?: { design: { overview_mobile: string } } }>`
     flex-direction: column;
     gap: 3rem;
     text-align: center;
+    align-items: center;
     .sorce_P {
       opacity: 0.5;
       color: #fff;
@@ -108,11 +127,13 @@ const Main = styled.main<{ Planet?: { design: { overview_mobile: string } } }>`
   }
   .quicInfoContainer {
     & > div {
-      width: 327px;
+      min-width: 327px;
+      max-width: 500px;
       height: 48px;
-      flex-shrink: 0;
+
       display: flex;
-      border: 1px solid #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
       justify-content: space-around;
       align-items: center;
       & > p {

@@ -22,7 +22,6 @@ export default function Header({
   const [show, setShow] = useState<boolean>(false);
 
   const handleHamburgerClick = () => {
-    console.log("clicked");
     setShow(!show);
   };
 
@@ -34,13 +33,26 @@ export default function Header({
           <img src="/assets/icon-hamburger.svg" alt="icon-hamburger" />
         </button>
       </div>
-      <Additional>
-        <span onClick={() => handleViewOptionClick("overView")}>OVERVIEW</span>
-        <span onClick={() => handleViewOptionClick("structure")}>
+      <Additional viewOption={viewOption}>
+        <span
+          className="overView"
+          onClick={() => handleViewOptionClick("overview")}
+        >
+          OVERVIEW
+        </span>
+        <span
+          className="structure"
+          onClick={() => handleViewOptionClick("structure")}
+        >
           {" "}
           Structure
         </span>
-        <span onClick={() => handleViewOptionClick("surface")}>Surface </span>
+        <span
+          className="surface"
+          onClick={() => handleViewOptionClick("surface")}
+        >
+          Surface{" "}
+        </span>
       </Additional>
       <NavContainer show={show}>
         <ul>
@@ -70,6 +82,12 @@ const HeaderDiv = styled.header`
     justify-content: space-between;
     padding: 2rem 3rem 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    @media screen and (min-width: 768px) {
+      justify-content: center;
+      border: none;
+      transition: 1s;
+    }
   }
   .headerDiv h1 {
     color: #fff;
@@ -82,14 +100,22 @@ const HeaderDiv = styled.header`
     border: none;
     background: transparent;
     cursor: pointer;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
   }
 `;
-const Additional = styled.div`
+const Additional = styled.div<{
+  viewOption: IViewOptions;
+}>`
   display: flex;
   width: 100%;
   justify-content: space-around;
-  padding: 2rem 3rem 2rem;
+  padding: 2rem 3rem 0rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
   & > span {
     cursor: pointer;
     text-align: center;
@@ -97,6 +123,19 @@ const Additional = styled.div`
     font-weight: 700;
     letter-spacing: 1.929px;
     text-transform: uppercase;
+    padding-bottom: 2rem;
+  }
+  .overView {
+    border-bottom: ${(props) =>
+      props.viewOption?.overview ? `2px solid red` : ""};
+  }
+  .structure {
+    border-bottom: ${(props) =>
+      props.viewOption?.structure ? "2px solid red" : ""};
+  }
+  .surface {
+    border-bottom: ${(props) =>
+      props.viewOption?.surface ? "2px solid red" : ""};
   }
 `;
 const NavContainer = styled.div<{ show: boolean }>`
@@ -107,6 +146,13 @@ const NavContainer = styled.div<{ show: boolean }>`
   height: 100vh;
   width: 100%;
   top: 8rem;
+  @media screen and (min-width: 768px) {
+    display: flex;
+
+    transform: none;
+    height: 10vh;
+    transition: 1s;
+  }
   ul {
     display: flex;
     flex-direction: column;
@@ -116,6 +162,12 @@ const NavContainer = styled.div<{ show: boolean }>`
     padding: 2rem;
     background-color: #070724;
     text-transform: uppercase;
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      transition: 1s;
+    }
   }
 `;
 
@@ -134,6 +186,7 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
+
   .nav-circle {
     display: flex;
     align-items: center;
@@ -145,5 +198,14 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
     border-radius: 50%;
     background-color: ${(props) =>
       props.Planet && props.Planet.design && props.Planet.design.color};
+    @media screen and (min-width: 768px) {
+      display: none;
+      transition: 1s;
+    }
+  }
+  .arrow {
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
   }
 `;

@@ -11,7 +11,7 @@ export interface IViewOptions {
 }
 function App() {
   const [viewOption, setViewOption] = useState({
-    overview: true,
+    overview: false,
     structure: false,
     surface: false,
   });
