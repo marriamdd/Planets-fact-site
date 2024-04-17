@@ -8,13 +8,15 @@ export default function Header({
   viewOption,
   setViewOption,
   isMobile,
+  show,
+  setShow,
 }: {
   viewOption: string | undefined;
   setViewOption: (option: string) => void;
   isMobile: boolean;
+  show: boolean;
+  setShow: (show: boolean) => void;
 }) {
-  const [show, setShow] = useState<boolean>(false);
-
   const handleHamburgerClick = () => {
     setShow(!show);
   };

@@ -5,6 +5,7 @@ import { useState } from "react";
 import GlobalStyles from "./globalStyles/GlobalStyles";
 import { useMediaQuery } from "react-responsive";
 function App() {
+  const [show, setShow] = useState<boolean>(false);
   const [viewOption, setViewOption] = useState("overview");
   const isMobile = useMediaQuery({ query: `(max-width:768px)` });
   const isTablet = useMediaQuery({ query: `(min-width:768px)` });
@@ -12,6 +13,8 @@ function App() {
     <>
       <GlobalStyles />
       <Header
+        show={show}
+        setShow={setShow}
         setViewOption={setViewOption}
         viewOption={viewOption}
         isMobile={isMobile}
@@ -22,6 +25,7 @@ function App() {
           path="/:planet"
           element={
             <Planet
+              show={show}
               setViewOption={setViewOption}
               viewOption={viewOption}
               isTablet={isTablet}

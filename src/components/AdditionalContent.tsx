@@ -87,7 +87,7 @@ const Additional = styled.div<{
     @media screen and (min-width: 768px) {
       width: 281px;
       height: 40px;
-      padding-top: 1rem;
+      padding-top: 1.5rem;
     }
   }
   & > span.active {
