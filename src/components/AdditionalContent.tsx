@@ -125,7 +125,9 @@ const Additional = styled.div<{
     }
   }
   & > span:hover {
-    background: #d19781;
+    @media screen and (min-width: 1440px) {
+      background: #d19781;
+    }
   }
   & > span.active {
     border-bottom: ${(props) =>
