@@ -52,7 +52,7 @@ export default function Planet({
                 planet?.viewOption.geology.content) ||
               planet?.viewOption.overview.content}
           </p>
-          <p className="sorce_P">
+          <p className="source_paragraph">
             Source : <a href={planet?.viewOption.overview.source}>Wikipedia</a>{" "}
             <img src="/assets/icon-source.svg" alt="icon-source" />
           </p>
@@ -108,6 +108,8 @@ const Main = styled.main<{
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    grid-template-columns: repeat(2, minmax(17rem, 1fr));
   }
 
   .overview_content {
@@ -163,7 +165,7 @@ const Main = styled.main<{
 
     text-align: center;
     align-items: center;
-    .sorce_P {
+    .source_paragraph {
       opacity: 0.5;
       color: #fff;
       font-size: 1.2rem;
@@ -270,6 +272,10 @@ const Main = styled.main<{
 
   .storyContent {
     margin-top: 7rem;
+    @media screen and (min-width: 768px) {
+      margin-top: 0;
+    }
+
     & > h1 {
       font-size: 4rem;
     }
