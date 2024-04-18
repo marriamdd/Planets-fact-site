@@ -27,7 +27,8 @@
     "design": {
       "color": "#DEF4FC",
       "overview_mobile": "11.1rem",
-      "overview_tablet": "18.4rem"
+      "overview_tablet": "18.4rem",
+      "overview_desktop": "29rem"
     }
   },
   {
@@ -59,7 +60,8 @@
     "design": {
       "color": "#F7CC7F",
       "overview_mobile": "15.4rem",
-      "overview_tablet": "25.3rem"
+      "overview_tablet": "25.3rem",
+      "overview_desktop": "40rem"
     }
   },
   {
@@ -91,7 +93,8 @@
     "design": {
       "color": "#545BFE",
       "overview_mobile": "17.3rem",
-      "overview_tablet": "28.5rem"
+      "overview_tablet": "28.5rem",
+      "overview_desktop": "45rem"
     }
   },
   {
@@ -122,7 +125,8 @@
     "design": {
       "color": "#FF6A45",
       "overview_mobile": "12.9rem",
-      "overview_tablet": "21.3rem"
+      "overview_tablet": "21.3rem",
+      "overview_desktop": "33.6rem"
     }
   },
   {
@@ -154,7 +158,8 @@
     "design": {
       "color": "#ECAD7A",
       "overview_mobile": "22.4rem",
-      "overview_tablet": "36.9rem"
+      "overview_tablet": "36.9rem",
+      "overview_desktop": "58.2rem"
     }
   },
   {
@@ -185,7 +190,8 @@
     "design": {
       "color": "#FCCB6B",
       "overview_mobile": "15.9rem",
-      "overview_tablet": "26.3rem"
+      "overview_tablet": "26.3rem",
+      "overview_desktop": "41.6rem"
     }
   },
   {
@@ -216,7 +222,8 @@
     "design": {
       "color": "#65F0D5",
       "overview_mobile": "17.6rem",
-      "overview_tablet": "29rem"
+      "overview_tablet": "29rem",
+      "overview_desktop": "35.8rem"
     }
   },
   {
@@ -247,7 +254,8 @@
     "design": {
       "color": "#497EFA",
       "overview_mobile": "17.3rem",
-      "overview_tablet": "28.5rem"
+      "overview_tablet": "28.5rem",
+      "overview_desktop": "45rem"
     }
   }
 ]

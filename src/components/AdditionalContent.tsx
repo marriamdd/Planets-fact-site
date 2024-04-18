@@ -74,6 +74,9 @@ const Additional = styled.div<{
   @media screen and (min-width: 768px) {
     border-bottom: none;
     padding: 0rem;
+    height: 234px;
+    justify-content: center;
+    padding-top: 3rem;
   }
   & > span {
     cursor: pointer;

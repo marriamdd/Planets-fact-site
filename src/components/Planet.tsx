@@ -82,7 +82,13 @@ export default function Planet({
   );
 }
 const Main = styled.main<{
-  Planet?: { design: { overview_mobile: string; overview_tablet: string } };
+  Planet?: {
+    design: {
+      overview_mobile: string;
+      overview_tablet: string;
+      overview_desktop: string;
+    };
+  };
 }>`
   margin-block: 10rem;
   display: flex;
@@ -118,6 +124,13 @@ const Main = styled.main<{
         props.Planet.design.overview_tablet};
       transition: 1s;
     }
+    @media screen and (min-width: 1440px) {
+      width: ${(props) =>
+        props.Planet &&
+        props.Planet.design.overview_desktop &&
+        props.Planet.design.overview_desktop};
+      transition: 1s;
+    }
   }
   & > div h1 {
     margin-top: 7rem;
@@ -149,7 +162,7 @@ const Main = styled.main<{
     @media screen and (min-width: 768px) {
       grid-column-start: 3;
       grid-column-end: 1;
-
+      margin-top: 10rem;
       flex-direction: row;
       justify-content: center;
     }
@@ -212,6 +225,10 @@ const Main = styled.main<{
       p {
         width: 33.9rem;
         font-size: 11px;
+      }
+      h1 {
+        margin: 0px;
+        margin-bottom: 1.5rem;
       }
     }
   }
