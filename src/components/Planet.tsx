@@ -170,13 +170,13 @@ const Main = styled.main<{
     .sorce_P {
       opacity: 0.5;
       color: #fff;
-      font-size: 12px;
+      font-size: 1.2rem;
       font-style: normal;
       font-weight: 700;
-      line-height: 25px;
+      line-height: 2.5rem;
       @media screen and (min-width: 1440px) {
         margin-top: 1rem;
-        font-size: 14px;
+        font-size: 1.4rem;
       }
       & > a {
         text-decoration-line: underline;
@@ -198,17 +198,17 @@ const Main = styled.main<{
       gap: 3rem;
     }
     & > div {
-      width: 327px;
-      height: 48px;
+      width: 32.7rem;
+      height: 4.8rem;
       display: flex;
       border: 1px solid rgba(255, 255, 255, 0.2);
 
       justify-content: space-around;
       align-items: center;
       @media screen and (min-width: 768px) {
-        min-width: 170px;
-        width: 255px;
-        height: 88px;
+        min-width: 17rem;
+        width: 25.5rem;
+        height: 8.8rem;
         flex-direction: column;
         align-items: start;
         padding-left: 1rem;
@@ -221,7 +221,7 @@ const Main = styled.main<{
         font-size: 10px;
         font-style: normal;
         font-weight: 700;
-        line-height: 16px;
+        line-height: 1.6rem;
         letter-spacing: 0.727px;
         text-transform: uppercase;
         opacity: 0.2;
@@ -230,14 +230,14 @@ const Main = styled.main<{
         color: #fff;
         text-align: right;
 
-        font-size: 20px;
+        font-size: 2rem;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
         letter-spacing: -0.75px;
         text-transform: uppercase;
         @media screen and (min-width: 768px) {
-          font-size: 24px;
+          font-size: 2.4rem;
           letter-spacing: -0.9px;
           text-transform: uppercase;
         }
@@ -247,17 +247,17 @@ const Main = styled.main<{
   .planetImg_div {
     position: relative;
     .pointer_img {
-      width: 80px;
+      width: 8rem;
 
       position: absolute;
       bottom: -5rem;
       @media screen and (min-width: 768px) {
-        width: 120px;
+        width: 12rem;
         bottom: -6rem;
       }
       @media screen and (min-width: 1440px) {
-        width: 163px;
-        height: 199px;
+        width: 16.3rem;
+        height: 19.9rem;
       }
     }
     @media screen and (min-width: 768px) {
@@ -277,7 +277,7 @@ const Main = styled.main<{
     @media screen and (min-width: 768px) {
       h1 {
         text-align: center;
-        font-size: 40px;
+        font-size: 4rem;
         font-weight: 400;
         text-transform: uppercase;
         margin: 0px;

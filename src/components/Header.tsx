@@ -62,7 +62,6 @@ export default function Header({
     </HeaderDiv>
   );
 }
-
 const HeaderDiv = styled.header`
   @media screen and (min-width: 1440px) {
     display: inline-block;
@@ -72,7 +71,6 @@ const HeaderDiv = styled.header`
     justify-content: space-between;
     padding: 2rem 3rem 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
     @media screen and (min-width: 768px) {
       justify-content: center;
       border: none;
@@ -113,7 +111,6 @@ const NavContainer = styled.div<{ show: boolean }>`
   top: 8rem;
   @media screen and (min-width: 768px) {
     display: flex;
-
     transform: none;
     height: 10vh;
     transition: 1s;
@@ -121,7 +118,7 @@ const NavContainer = styled.div<{ show: boolean }>`
   @media screen and (min-width: 1440px) {
     display: inline;
     top: 0rem;
-    width: 665px;
+    width: 66.5rem;
     margin-left: 45rem;
   }
   & > ul {
@@ -131,7 +128,6 @@ const NavContainer = styled.div<{ show: boolean }>`
     gap: 2.3rem;
     width: 100%;
     padding: 2rem;
-
     background-color: #070724;
     text-transform: uppercase;
     @media screen and (min-width: 768px) {
@@ -150,24 +146,20 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
   display: flex;
   justify-content: space-between;
   width: 100%;
-
   text-align: center;
-  font-size: 15px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 25px;
+  line-height: 2.5rem;
   letter-spacing: 1.364px;
   text-transform: uppercase;
   padding-bottom: 1.5rem;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   @media screen and (min-width: 1440px) {
     padding: 1rem;
-
     margin-top: 1rem;
   }
-
   .active_planet {
     @media screen and (min-width: 1440px) {
       border-top: ${(props) =>
@@ -182,8 +174,8 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
     gap: 2rem;
   }
   .circles {
-    width: 15px;
-    height: 15px;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     background-color: ${(props) =>
       props.Planet && props.Planet.design && props.Planet.design.color};
@@ -198,6 +190,6 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
     }
   }
   & > a span {
-    height: 40px;
+    height: 4rem;
   }
 `;

@@ -74,7 +74,7 @@ const Additional = styled.div<{
   @media screen and (min-width: 768px) {
     border-bottom: none;
     padding: 0rem;
-    height: 234px;
+    height: 23.4rem;
     justify-content: center;
     padding-top: 3rem;
   }
@@ -82,23 +82,23 @@ const Additional = styled.div<{
     cursor: pointer;
     text-align: center;
     position: relative;
-    font-size: 9px;
+    font-size: 0.9rem;
     font-weight: 700;
     letter-spacing: 1.929px;
     text-transform: uppercase;
     padding-bottom: 2rem;
     @media screen and (min-width: 768px) {
-      width: 281px;
-      height: 40px;
+      width: 28.1rem;
+      height: 4rem;
       padding-top: 1.5rem;
     }
     @media screen and (min-width: 1440px) {
-      width: 350px;
-      height: 48px;
+      width: 35rem;
+      height: 4.8rem;
       color: #fff;
 
-      font-size: 12px;
-      line-height: 25px;
+      font-size: 1.2rem;
+      line-height: 2.5rem;
       letter-spacing: 2.571px;
 
       &:nth-child(1)::before {
@@ -123,19 +123,21 @@ const Additional = styled.div<{
       }
     }
   }
-
+  & > span:hover {
+    background: #d19781;
+  }
   & > span.active {
     border-bottom: ${(props) =>
       `3px solid ${props.currentPlanet?.design?.color}`};
     @media screen and (min-width: 768px) {
-      width: 281px;
-      height: 40px;
+      width: 28.1rem;
+      height: 4rem;
       flex-shrink: 0;
       border-bottom: none;
       background-color: ${(props) => props.currentPlanet?.design?.color};
       @media screen and (min-width: 1440px) {
-        width: 350px;
-        height: 48px;
+        width: 35rem;
+        height: 4.8rem;
       }
     }
   }
