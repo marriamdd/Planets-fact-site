@@ -115,25 +115,21 @@ const Main = styled.main<{
     text-align: start;
     word-wrap: normal;
     margin-top: 3rem;
-    font-size: 11px;
-    font-style: normal;
+    font-size: 12px;
+
     font-weight: 400;
     line-height: 22px;
 
-    width: 32.7rem;
+    width: 65%;
 
-    height: 110px;
-    font-size: 11px;
     @media screen and (min-width: 768px) {
-      width: 33.9rem;
-
-      height: 110px;
+      width: 70%;
+      font-size: 14px;
     }
     @media screen and (min-width: 1440px) {
       font-size: 14px;
-      width: 350px;
+      width: 80%;
 
-      height: 150px;
       line-height: 25px;
     }
   }
@@ -274,8 +270,11 @@ const Main = styled.main<{
 
   .storyContent {
     margin-top: 7rem;
+    & > h1 {
+      font-size: 4rem;
+    }
     @media screen and (min-width: 768px) {
-      h1 {
+      & > h1 {
         text-align: center;
         font-size: 4rem;
         font-weight: 400;

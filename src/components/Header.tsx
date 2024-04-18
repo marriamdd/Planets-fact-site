@@ -169,7 +169,7 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
       height: 2px;
       position: absolute;
       bottom: 3.4rem;
-      width: 5rem;
+      width: 100%;
       background: ${(props) => props.Planet?.design?.color};
     }
   }
