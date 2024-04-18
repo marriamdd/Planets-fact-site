@@ -20,7 +20,7 @@ function App() {
       setShow(false);
     }
   }, [isTablet, [isDesktop]]);
-  console.log(isTablet);
+
   return (
     <>
       <GlobalStyles />

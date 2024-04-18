@@ -21,7 +21,7 @@ export default function Header({
   };
   let location = useLocation();
   let endPoint = location.pathname.replace("/", "");
-  console.log(endPoint);
+
   return (
     <HeaderDiv>
       <div className="headerDiv">
@@ -161,13 +161,19 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
     margin-top: 1rem;
   }
   .active_planet {
+    position: relative;
+  }
+  .active_planet::before {
     @media screen and (min-width: 1440px) {
-      border-top: ${(props) =>
-        props.Planet &&
-        props.Planet.design &&
-        `0.2rem solid ${props.Planet.design.color}`};
+      content: "  ";
+      height: 2px;
+      position: absolute;
+      bottom: 3.4rem;
+      width: 5rem;
+      background: ${(props) => props.Planet?.design?.color};
     }
   }
+
   .nav-circle {
     display: flex;
     align-items: center;

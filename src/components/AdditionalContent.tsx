@@ -22,16 +22,17 @@ interface ICurrentPlanet {
   revolution: string;
   radius: string;
   temperature: string;
-  images?: {
-    content?: string;
+  images: {
+    planet: string;
+    internal: string;
+    geology: string;
   };
-  design:
-    | {
-        color: string;
-        overview_mobile: string;
-        overview_tablet: string;
-      }
-    | undefined;
+  design: {
+    color: string;
+    overview_mobile: string;
+    overview_tablet: string;
+    overview_desktop: string;
+  };
 }
 
 export default function AdditionalContent({
@@ -63,7 +64,7 @@ export default function AdditionalContent({
 }
 
 const Additional = styled.div<{
-  currentPlanet?: Partial<ICurrentPlanet>;
+  currentPlanet?: ICurrentPlanet;
   viewOption?: string | undefined;
 }>`
   display: flex;
