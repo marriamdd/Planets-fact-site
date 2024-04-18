@@ -54,7 +54,7 @@ export default function Planet({
           </p>
           <p className="sorce_P">
             Source : <a href={planet?.viewOption.overview.source}>Wikipedia</a>{" "}
-            <img src="public/assets/icon-source.svg" alt="icon-source" />
+            <img src="/assets/icon-source.svg" alt="icon-source" />
           </p>
         </div>
         {isTablet && (
