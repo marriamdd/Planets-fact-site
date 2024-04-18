@@ -7,11 +7,13 @@ export default function Planet({
   viewOption,
   setViewOption,
   isTablet,
+  isMobile,
   show,
 }: {
   viewOption: string | undefined;
   setViewOption: (option: string) => void;
   isTablet: boolean;
+  isMobile: boolean;
   show: boolean;
 }) {
   const params = useParams();
@@ -20,42 +22,42 @@ export default function Planet({
   const planet = data.find((planetObj) => planetObj.name === planetName);
   return (
     <>
-      {!show && (
-        <Main Planet={planet}>
-          <div className="planetImg_div">
-            <img
-              className="planet_img"
-              src={
-                (viewOption === "structure" && planet?.images.internal) ||
-                (viewOption === "geology" && planet?.images.geology) ||
-                planet?.images.planet
-              }
-              alt="planet_img"
-            />
-          </div>
+      <Main Planet={planet}>
+        <div className="planetImg_div">
+          <img
+            className="planet_img"
+            src={
+              (viewOption === "structure" && planet?.images.internal) ||
+              (viewOption === "geology" && planet?.images.geology) ||
+              planet?.images.planet
+            }
+            alt="planet_img"
+          />
+        </div>
 
-          <div className="storyContent">
-            <h1>{planet?.name}</h1>
-            <p className="overview_content">
-              {(viewOption === "structure" &&
-                planet?.viewOption.structure.content) ||
-                (viewOption === "geology" &&
-                  planet?.viewOption.geology.content) ||
-                planet?.viewOption.overview.content}
-            </p>
-            <p className="sorce_P">
-              Source :{" "}
-              <a href={planet?.viewOption.overview.source}>Wikipedia</a>{" "}
-              <img src="public/assets/icon-source.svg" alt="icon-source" />
-            </p>
-          </div>
-          {isTablet && (
-            <AdditionalContent
-              viewOption={viewOption}
-              setViewOption={setViewOption}
-            />
-          )}
-
+        <div className="storyContent">
+          <h1>{planet?.name}</h1>
+          <p className="overview_content">
+            {(viewOption === "structure" &&
+              planet?.viewOption.structure.content) ||
+              (viewOption === "geology" &&
+                planet?.viewOption.geology.content) ||
+              planet?.viewOption.overview.content}
+          </p>
+          <p className="sorce_P">
+            Source : <a href={planet?.viewOption.overview.source}>Wikipedia</a>{" "}
+            <img src="public/assets/icon-source.svg" alt="icon-source" />
+          </p>
+        </div>
+        {isTablet && (
+          <AdditionalContent
+            viewOption={viewOption}
+            setViewOption={setViewOption}
+          />
+        )}
+        {show ? (
+          ""
+        ) : (
           <div className="quicInfoContainer">
             <div>
               <p>ROTATION TIME</p>
@@ -74,8 +76,8 @@ export default function Planet({
               <span>{planet?.temperature}</span>
             </div>
           </div>
-        </Main>
-      )}
+        )}
+      </Main>
     </>
   );
 }

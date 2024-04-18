@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
@@ -33,7 +32,7 @@ export default function Header({
         <AdditionalContent
           viewOption={viewOption}
           setViewOption={setViewOption}
-        ></AdditionalContent>
+        />
       )}
 
       <NavContainer show={show}>
@@ -103,13 +102,14 @@ const NavContainer = styled.div<{ show: boolean }>`
     height: 10vh;
     transition: 1s;
   }
-  ul {
+  & > ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2.3rem;
     width: 100%;
     padding: 2rem;
+
     background-color: #070724;
     text-transform: uppercase;
     @media screen and (min-width: 768px) {
@@ -125,6 +125,7 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
   text-align: center;
   font-size: 15px;
   font-style: normal;
