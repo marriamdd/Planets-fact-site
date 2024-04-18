@@ -11,12 +11,15 @@ function App() {
   const [viewOption, setViewOption] = useState("overview");
   const isMobile = useMediaQuery({ query: `(max-width:768px)` });
   const isTablet = useMediaQuery({ query: `(min-width:768px)` });
-
+  const isDesktop = useMediaQuery({ query: `(min-width:1440px)` });
   useEffect(() => {
     if (isTablet) {
       setShow(false);
     }
-  }, [isTablet]);
+    if (isDesktop) {
+      setShow(false);
+    }
+  }, [isTablet, [isDesktop]]);
   console.log(isTablet);
   return (
     <>
@@ -39,6 +42,7 @@ function App() {
               setViewOption={setViewOption}
               viewOption={viewOption}
               isTablet={isTablet}
+              isDesktop={isDesktop}
             />
           }
         ></Route>

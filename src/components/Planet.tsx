@@ -8,12 +8,14 @@ export default function Planet({
   setViewOption,
   isTablet,
   isMobile,
+  isDesktop,
   show,
 }: {
   viewOption: string | undefined;
   setViewOption: (option: string) => void;
   isTablet: boolean;
   isMobile: boolean;
+  isDesktop: boolean;
   show: boolean;
 }) {
   const params = useParams();
