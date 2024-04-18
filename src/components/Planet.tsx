@@ -7,8 +7,7 @@ export default function Planet({
   viewOption,
   setViewOption,
   isTablet,
-  isMobile,
-  isDesktop,
+
   show,
 }: {
   viewOption: string | undefined;
@@ -30,11 +29,18 @@ export default function Planet({
             className="planet_img"
             src={
               (viewOption === "structure" && planet?.images.internal) ||
-              (viewOption === "geology" && planet?.images.geology) ||
+              (viewOption === "geology" && planet?.images.planet) ||
               planet?.images.planet
             }
             alt="planet_img"
           />
+          {viewOption === "geology" && (
+            <img
+              className="pointer_img"
+              src={planet?.images.geology}
+              alt="pointer img"
+            />
+          )}
         </div>
 
         <div className="storyContent">
@@ -132,12 +138,14 @@ const Main = styled.main<{
     }
   }
   .planet_img {
+    position: relative;
     width: ${(props) =>
       props.Planet &&
       props.Planet.design.overview_mobile &&
       props.Planet.design.overview_mobile};
     transition: 1s;
     @media screen and (min-width: 768px) {
+      margin: 3rem;
       width: ${(props) =>
         props.Planet &&
         props.Planet.design.overview_tablet &&
@@ -237,6 +245,21 @@ const Main = styled.main<{
     }
   }
   .planetImg_div {
+    position: relative;
+    .pointer_img {
+      width: 80px;
+
+      position: absolute;
+      bottom: -5rem;
+      @media screen and (min-width: 768px) {
+        width: 120px;
+        bottom: -6rem;
+      }
+      @media screen and (min-width: 1440px) {
+        width: 163px;
+        height: 199px;
+      }
+    }
     @media screen and (min-width: 768px) {
       grid-column-start: 1;
       grid-column-end: 3;

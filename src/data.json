@@ -25,7 +25,7 @@
       "geology": "./assets/geology-mercury.png"
     },
     "design": {
-      "color": "#DEF4FC",
+      "color": "#419EBB",
       "overview_mobile": "11.1rem",
       "overview_tablet": "18.4rem",
       "overview_desktop": "29rem"

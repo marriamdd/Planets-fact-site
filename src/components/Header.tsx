@@ -169,10 +169,12 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
   }
 
   .active_planet {
-    border-top: ${(props) =>
-      props.Planet &&
-      props.Planet.design &&
-      `0.2rem solid ${props.Planet.design.color}`};
+    @media screen and (min-width: 1440px) {
+      border-top: ${(props) =>
+        props.Planet &&
+        props.Planet.design &&
+        `0.2rem solid ${props.Planet.design.color}`};
+    }
   }
   .nav-circle {
     display: flex;
