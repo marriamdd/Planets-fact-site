@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
 import AdditionalContent from "./AdditionalContent";
-
+import { useLocation } from "react-router-dom";
 export default function Header({
   viewOption,
   setViewOption,
@@ -19,7 +19,9 @@ export default function Header({
   const handleHamburgerClick = () => {
     setShow(!show);
   };
-
+  let location = useLocation();
+  let endPoint = location.pathname.replace("/", "");
+  console.log(endPoint);
   return (
     <HeaderDiv>
       <div className="headerDiv">
@@ -42,7 +44,11 @@ export default function Header({
               <div className="nav-circle">
                 <div className="circles"></div>
                 <Link onClick={handleHamburgerClick} to={`/${planet.name}`}>
-                  {planet.name}
+                  <span
+                    className={planet.name === endPoint ? "active_planet" : ""}
+                  >
+                    {planet.name}
+                  </span>
                 </Link>
               </div>
 
@@ -58,6 +64,9 @@ export default function Header({
 }
 
 const HeaderDiv = styled.header`
+  @media screen and (min-width: 1440px) {
+    display: inline-block;
+  }
   .headerDiv {
     display: flex;
     justify-content: space-between;
@@ -69,6 +78,10 @@ const HeaderDiv = styled.header`
       border: none;
       transition: 1s;
     }
+    @media screen and (min-width: 1440px) {
+      display: inline-block;
+      height: 81px;
+    }
   }
   .headerDiv h1 {
     color: #fff;
@@ -76,6 +89,9 @@ const HeaderDiv = styled.header`
     font-weight: 400;
     letter-spacing: -1.05px;
     text-transform: uppercase;
+    @media screen and (min-width: 1440px) {
+      display: inline;
+    }
   }
   .headerDiv button {
     border: none;
@@ -102,6 +118,12 @@ const NavContainer = styled.div<{ show: boolean }>`
     height: 10vh;
     transition: 1s;
   }
+  @media screen and (min-width: 1440px) {
+    display: inline;
+    top: 0rem;
+    width: 665px;
+    margin-left: 45rem;
+  }
   & > ul {
     display: flex;
     flex-direction: column;
@@ -117,6 +139,9 @@ const NavContainer = styled.div<{ show: boolean }>`
       flex-direction: row;
       gap: 0;
       transition: 1s;
+    }
+    @media screen and (min-width: 1440px) {
+      padding-top: 0rem;
     }
   }
 `;
@@ -137,7 +162,18 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  @media screen and (min-width: 1440px) {
+    padding: 1rem;
 
+    margin-top: 1rem;
+  }
+
+  .active_planet {
+    border-top: ${(props) =>
+      props.Planet &&
+      props.Planet.design &&
+      `0.2rem solid ${props.Planet.design.color}`};
+  }
   .nav-circle {
     display: flex;
     align-items: center;
@@ -158,5 +194,8 @@ const Li = styled.li<{ Planet: { design: { color: string } } }>`
     @media screen and (min-width: 768px) {
       display: none;
     }
+  }
+  & > a span {
+    height: 40px;
   }
 `;

@@ -103,15 +103,33 @@ const Main = styled.main<{
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   .overview_content {
     color: #fff;
-    text-align: center;
+    text-align: start;
     word-wrap: normal;
-    max-width: 550px;
+    margin-top: 3rem;
     font-size: 11px;
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
+
+    width: 32.7rem;
+
+    height: 110px;
+    font-size: 11px;
+    @media screen and (min-width: 768px) {
+      width: 33.9rem;
+
+      height: 110px;
+    }
+    @media screen and (min-width: 1440px) {
+      font-size: 14px;
+      width: 350px;
+
+      height: 150px;
+      line-height: 25px;
+    }
   }
   .planet_img {
     width: ${(props) =>
@@ -134,39 +152,42 @@ const Main = styled.main<{
       transition: 1s;
     }
   }
-  & > div h1 {
-    margin-top: 7rem;
-    text-align: center;
-    font-size: 40px;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
+
   & > div {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+
     text-align: center;
     align-items: center;
     .sorce_P {
       opacity: 0.5;
       color: #fff;
-
       font-size: 12px;
       font-style: normal;
       font-weight: 700;
       line-height: 25px;
+      @media screen and (min-width: 1440px) {
+        margin-top: 1rem;
+        font-size: 14px;
+      }
       & > a {
         text-decoration-line: underline;
       }
     }
   }
   .quicInfoContainer {
+    margin-top: 3rem;
+    gap: 1.5rem;
     @media screen and (min-width: 768px) {
       grid-column-start: 3;
       grid-column-end: 1;
       margin-top: 10rem;
       flex-direction: row;
       justify-content: center;
+      gap: 2rem;
+    }
+    @media screen and (min-width: 1440px) {
+      gap: 3rem;
     }
     & > div {
       width: 327px;
@@ -220,17 +241,31 @@ const Main = styled.main<{
       grid-column-start: 1;
       grid-column-end: 3;
     }
+    @media screen and (min-width: 1440px) {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
   }
 
   .storyContent {
+    margin-top: 7rem;
     @media screen and (min-width: 768px) {
-      p {
-        width: 33.9rem;
-        font-size: 11px;
-      }
       h1 {
+        text-align: center;
+        font-size: 40px;
+        font-weight: 400;
+        text-transform: uppercase;
         margin: 0px;
         margin-bottom: 1.5rem;
+
+        @media screen and (min-width: 768px) {
+          margin-bottom: 3rem;
+        }
+        @media screen and (min-width: 1440px) {
+          margin-bottom: 3rem;
+        }
       }
     }
   }

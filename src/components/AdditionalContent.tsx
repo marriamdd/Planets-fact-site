@@ -81,7 +81,7 @@ const Additional = styled.div<{
   & > span {
     cursor: pointer;
     text-align: center;
-
+    position: relative;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.929px;
@@ -92,7 +92,38 @@ const Additional = styled.div<{
       height: 40px;
       padding-top: 1.5rem;
     }
+    @media screen and (min-width: 1440px) {
+      width: 350px;
+      height: 48px;
+      color: #fff;
+
+      font-size: 12px;
+      line-height: 25px;
+      letter-spacing: 2.571px;
+
+      &:nth-child(1)::before {
+        content: "01";
+        opacity: 0.5;
+        position: absolute;
+        left: 2.8rem;
+      }
+
+      &:nth-child(2)::before {
+        content: "02";
+        opacity: 0.5;
+        position: absolute;
+        left: 2.8rem;
+      }
+
+      &:nth-child(3)::before {
+        content: "03";
+        opacity: 0.5;
+        position: absolute;
+        left: 2.8rem;
+      }
+    }
   }
+
   & > span.active {
     border-bottom: ${(props) =>
       `3px solid ${props.currentPlanet?.design?.color}`};
@@ -102,6 +133,10 @@ const Additional = styled.div<{
       flex-shrink: 0;
       border-bottom: none;
       background-color: ${(props) => props.currentPlanet?.design?.color};
+      @media screen and (min-width: 1440px) {
+        width: 350px;
+        height: 48px;
+      }
     }
   }
 `;
